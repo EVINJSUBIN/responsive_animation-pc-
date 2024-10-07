@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+nav {
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+nav button {
+  animation: hi 2s infinite ease-in-out;
+  list-style-type: none;
+  margin: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  nav {
+    margin: 50px 20px 20px;
+    padding: 50px;
+  }
+
+  nav button {
+    margin-left: 50px;
+    padding: 10px;
+    animation: hi 5s infinite;
+  }
+
+  @keyframes hi {
+    50% {
+      transform: translateX(-90px);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  nav {
+    flex-direction: column;
+  }
+
+  nav button {
+    margin: 10px 50px;
+    padding: 10px;
+    width: 70%;
+    animation: hi 5s infinite;
+  }
+
+  nav button:hover {
+    transform: scale(1.1);
+  }
+}
